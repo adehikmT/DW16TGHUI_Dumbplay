@@ -71,7 +71,7 @@ const Index = () => {
         expand="lg"
         fixed="top"
       >
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             src={Logo}
             width="30"
@@ -80,7 +80,7 @@ const Index = () => {
             alt="Logo"
           />
         </Navbar.Brand>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             src={DumbSound}
             width="100"

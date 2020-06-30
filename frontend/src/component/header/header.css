@@ -1,7 +1,8 @@
 .profilrImg {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
+  cursor: pointer;
 }
 
 .nav-colored {
@@ -12,8 +13,8 @@
 .profile-square {
   display: relative;
   position: fixed;
-  right: 28px;
-  top: 80px;
+  right: 250px;
+  top: 120px;
   background-color: #1f1f1f;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -62,8 +63,8 @@
 
 .profile-arrow {
   position: inherit;
-  right: 55px;
-  top: 65px;
+  right: 380px;
+  top: 108px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 15px solid #1f1f1f;
@@ -75,8 +76,8 @@
   .profile-square {
     display: relative;
     position: fixed;
-    right: 28px;
-    top: 80px;
+    right: 35px;
+    top: 70px;
     background-color: #1f1f1f;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -85,5 +86,16 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+  }
+
+  .profile-arrow {
+    position: inherit;
+    right: 50px;
+    top: 60px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #1f1f1f;
+    width: 0;
+    height: 0;
   }
 }

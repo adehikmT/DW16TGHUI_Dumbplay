@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Image, Row, Col } from "react-bootstrap";
-import { MdPayment,FaUserAlt,AiOutlineTransaction ,MdLibraryMusic,FaUserTie,AiOutlineLogout} from "react-icons/all";
+import {
+  MdPayment,
+  FaUserAlt,
+  AiOutlineTransaction,
+  MdLibraryMusic,
+  FaUserTie,
+  AiOutlineLogout,
+} from "react-icons/all";
 
 import userImg from "../../public/assets/index.png";
 
@@ -16,18 +23,22 @@ const Down = (down) => {
             <div className="profile-dropdown-icon">
               <FaUserAlt className="icon" size={22} />
             </div>
-            <div className="profile-dropdown-link">
-              <span className="submenu">Profile</span>
-            </div>
+            <a href="/profile" style={{ textDecoration: "none" }}>
+              <div className="profile-dropdown-link">
+                <span className="submenu">Profile</span>
+              </div>
+            </a>
           </div>
           <div>
             <div className="profile-dropdown-group">
               <div className="profile-dropdown-icon">
                 <MdPayment className="icon" size={24} />
               </div>
-              <div className="profile-dropdown-link">
-                <span className="submenu">Pay</span>
-              </div>
+              <a href="/payment" style={{ textDecoration: "none" }}>
+                <div className="profile-dropdown-link">
+                  <span className="submenu">Pay</span>
+                </div>
+              </a>
             </div>
           </div>
           <div>
@@ -35,35 +46,51 @@ const Down = (down) => {
               <div className="profile-dropdown-icon">
                 <AiOutlineTransaction className="icon" size={25} />
               </div>
-              <div className="profile-dropdown-link">
-                <span className="submenu">Transcation</span>
-              </div>
+              <a href="/transaction" style={{ textDecoration: "none" }}>
+                <div className="profile-dropdown-link">
+                  <span className="submenu">Transcation</span>
+                </div>
+              </a>
             </div>
-
             <div className="profile-dropdown-group">
               <div className="profile-dropdown-icon">
                 <MdLibraryMusic className="icon" size={24} />
               </div>
-              <div className="profile-dropdown-link">
-                <span className="submenu">Add Music</span>
-              </div>
+              <a href="/music" style={{ textDecoration: "none" }}>
+                <div className="profile-dropdown-link">
+                  <span className="submenu">Add Music</span>
+                </div>
+              </a>
             </div>
-
             <div className="profile-dropdown-group">
               <div className="profile-dropdown-icon">
                 <FaUserTie className="icon" size={22} />
               </div>
-              <div className="profile-dropdown-link">
-                <span className="submenu">Add Artis</span>
-              </div>
+              <a href="/singer" style={{ textDecoration: "none" }}>
+                <div className="profile-dropdown-link">
+                  <span className="submenu">Add Artis</span>
+                </div>
+              </a>
             </div>
           </div>
-          <hr style={{ marginBottom: "10px",backgroundColor:"white" ,height:"1px" }} />
-          <div className="profile-dropdown-group" style={{ marginBottom: "-8px" }}>
+          <hr
+            style={{
+              marginBottom: "10px",
+              backgroundColor: "white",
+              height: "1px",
+            }}
+          />
+          <div
+            className="profile-dropdown-group"
+            style={{ marginBottom: "-8px" }}
+          >
             <div className="profile-dropdown-icon mt-1 mb-2">
               <AiOutlineLogout className="icon" size={24} />
             </div>
-            <div className="profile-dropdown-link mb-2" style={{marginTop:-1}}>
+            <div
+              className="profile-dropdown-link mb-2"
+              style={{ marginTop: -1 }}
+            >
               <span className="submenu">Logout</span>
             </div>
           </div>

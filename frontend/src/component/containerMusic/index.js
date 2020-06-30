@@ -7,8 +7,8 @@ import "./list.css";
 
 const Index = () => {
   return (
-    <Container fluid className="cofl">
-      <Row>
+    <Container className="cofl">
+      <Row className="mt-5">
         <ListCard />
         <ListCard />
         <ListCard />

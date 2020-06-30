@@ -4,7 +4,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 const FormMusic = () => {
   return (
     <>
-      <Form>
+      <Form className="mt-5">
         <Row>
           <Col className="col-12">
             <Form.Control type="text" placeholder="Enter Title" name="title" />

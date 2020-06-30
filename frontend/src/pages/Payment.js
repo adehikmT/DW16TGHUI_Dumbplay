@@ -1,17 +1,28 @@
-import React from "react"
-
+import React, { useState } from "react";
 // child compoent
-import Pay from "../component/payment"
-import Header from "../component/header"
+import Pay from "../component/payment";
+import Header from "../component/header";
+import LodBars from "../component/loader/Bars";
 
 const Payment = () => {
   document.title = "Payment";
-    return(
-        <>
-        <Header/>
-        <Pay/>
-        </>
-    )
-}
+  const [loadPage, setLoadPage] = useState(true);
+  setTimeout(() => {
+    setLoadPage(false);
+  }, 3000);
 
-export default Payment
+  return (
+    <>
+      {loadPage ? (
+        <LodBars />
+      ) : (
+        <>
+          <Header />
+          <Pay />
+        </>
+      )}
+    </>
+  );
+};
+
+export default Payment;

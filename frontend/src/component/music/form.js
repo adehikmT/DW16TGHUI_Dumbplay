@@ -5,7 +5,7 @@ import { MdAttachFile } from "react-icons/all";
 const FormMusic = () => {
   return (
     <>
-      <Form>
+      <Form className="mt-5">
         <Row>
           <Col className="col-9">
             <Form.Control type="text" placeholder="Enter Title" name="title" />

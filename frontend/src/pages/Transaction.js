@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-// child
+// child compoent
+import TableTransaction from "../component/transaction";
 import Header from "../component/header";
-import Singer from "../component/singer";
 import LodBars from "../component/loader/Bars";
 
-const AddSinger = () => {
-  document.title = "Singer";
+const Transaction = () => {
+  document.title = "Transaction";
   const [loadPage, setLoadPage] = useState(true);
   setTimeout(() => {
     setLoadPage(false);
@@ -18,11 +18,11 @@ const AddSinger = () => {
       ) : (
         <>
           <Header />
-          <Singer />
+          <TableTransaction />
         </>
       )}
     </>
   );
 };
 
-export default AddSinger;
+export default Transaction;
