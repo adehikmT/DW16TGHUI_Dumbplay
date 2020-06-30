@@ -1,14 +1,10 @@
 ## What is IdFlix?
-IdFlix is an online striming vidio made by Indonesi. the id is the Indonesia county code.  
+DumbSound is an online Audio Player made by Indonesi. the id is the Indonesia county code.  
 
-## Routes
-1. home '/'
-2. login '/login'
-3. register '/register'
 
 ## How to Use
 ```
-git clone https://github.com/adehikmT/DW16TGHUI_IDflix/tree/ <brench>
+git clone https://github.com/adehikmT/DW16TGHUI_Dumbplay/tree/ <brench>
 yarn isntall
 ```
 ## Available Scripts
