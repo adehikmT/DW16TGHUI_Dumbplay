@@ -1,62 +1,62 @@
-.musicTitle{
-    font-family: "Product Sans";
+.musicTitle {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 20px;
+  padding: 10px;
+  color: #ffffff;
+  padding-top: -95px;
+  margin-top: 5px;
+}
+
+.singer {
+  color: #ffffff;
+  padding-left: 10px;
+  margin-top: 5px;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.year {
+  padding-left: 180px;
+}
+
+.musicCard {
+  background: #3a3a3a;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.cofl{
+  padding-left:50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  margin-top: -80px;
+  background-color: #161616;
+}
+
+@media (min-width: 768px) {
+  .musicTitle {
+    font-family: Product Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 15px;
     line-height: 20px;
     padding: 10px;
-    color:#FFFFFF;
-    padding-top: -95px;
-    margin-top: 5px;
-}
+    color: #ffffff;
+    padding-top: -100px;
+    margin-top: -5px;
+  }
 
-.singer{
-    color:#FFFFFF;
-    padding-left:10px;
-    margin-top:5px;
-    font-size: 15px;
-    padding-bottom: 10px;
-}
+  .singer {
+    color: #ffffff;
+    padding-left: 10px;
+    margin-top: -10px;
+    padding-bottom: 5px;
+  }
 
-.year{
-    padding-left:180px;
-}
-
-.musicCard{
-    background: #3A3A3A;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.loaded{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (min-width: 768px) { 
-    .musicTitle{
-        font-family: "Product Sans";
-        font-style: normal;
-        font-weight: bold;
-        font-size: 15px;
-        line-height: 20px;
-        padding: 10px;
-        color:#FFFFFF;
-        padding-top: -100px;
-        margin-top: -5px;
-    }
-    
-    .singer{
-        color:#FFFFFF;
-        padding-left:10px;
-        margin-top:-10px;
-        padding-bottom: 5px;
-    }
-    
-    .year{
-        padding-left:50px;
-    }
-    
+  .year {
+    padding-left: 50px;
+  }
 }
