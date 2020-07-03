@@ -15,3 +15,7 @@ export const POST_TRANSACTION = "POST_TRANSACTION";
 //action auth
 export const AUTH_LOGIN = "AUTH_LOGIN";
 export const AUTH_REGISTER = "AUTH_REGISTER";
+
+//action play music
+export const PLAY_MUSIC = "PLAY_MUSIC";
+export const USER_SUBSCRIBE = "USER_SUBSCRIBE";

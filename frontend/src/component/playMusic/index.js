@@ -1,44 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import img12 from "../../public/assets/12.svg";
+import { connect } from "react-redux";
+import { getAllMusicCreator } from "../../redux/actions/actionMusic";
 
 import PlayMusic from "./Play";
 
-const Index = () => {
-  const musicAll = [
-    {
-      title: "End Of The ..",
-      artis: "Backstreet Boys",
-      cover: img12,
-      musicSrc:
-        "https://p.scdn.co/mp3-preview/9af47d1865d4022ba07cbf931ffb7ffa47dc4dd6?cid=18fc7b00a64d447393f6ee0dd98a70be",
-    },
-    {
-      title: "Circles",
-      artis: "Post Malone",
-      cover: img12,
-      musicSrc:
-        "https://p.scdn.co/mp3-preview/9af47d1865d4022ba07cbf931ffb7ffa47dc4dd6?cid=18fc7b00a64d447393f6ee0dd98a70be",
-    },
-    {
-        title: "Logic",
-        artis: "Keanu Reeces",
-        cover: img12,
-        musicSrc:
-          "https://p.scdn.co/mp3-preview/9af47d1865d4022ba07cbf931ffb7ffa47dc4dd6?cid=18fc7b00a64d447393f6ee0dd98a70be",
-      },
-      {
-        title: "Godzila",
-        artis: "Eminem",
-        cover: img12,
-        musicSrc:
-          "https://p.scdn.co/mp3-preview/9af47d1865d4022ba07cbf931ffb7ffa47dc4dd6?cid=18fc7b00a64d447393f6ee0dd98a70be",
-      }
-  ];
+const Index = ({ loading, error, data, getAllMusicCreator: read }) => {
+  useEffect(() => {
+    read();
+  }, []);
 
-  return <PlayMusic musicAll={musicAll} playIndex={1} setPlayIndex={2} />;
+  return data !== null && data.length > 0 ? (
+    <PlayMusic musicAll={data}/>
+  ) : null;
 };
 
-export default Index;
+const mapStateToProps = (state) => {
+  const { loading, data, error } = state.musicReducer;
+  return {
+    loading,
+    error,
+    data,
+  };
+};
+
+export default connect(mapStateToProps, { getAllMusicCreator })(Index);
 
 // https://p.scdn.co/mp3-preview/9af47d1865d4022ba07cbf931ffb7ffa47dc4dd6?cid=18fc7b00a64d447393f6ee0dd98a70be

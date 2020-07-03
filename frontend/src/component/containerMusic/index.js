@@ -17,7 +17,9 @@ const Index = ({ data, getAllMusicCreator: read }) => {
   return (
     <Container className="cofl">
       <Row className="mt-5">
-        {data!==null&&data.length > 0 ? data.map((lagu, i) => <ListCard {...lagu} />) : ""}
+        {data !== null && data.length > 0
+          ? data.map((lagu, i) => <ListCard index={i} {...lagu} />)
+          : ""}
       </Row>
     </Container>
   );

@@ -2,13 +2,16 @@ import React from "react";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "./playMusic.css";
 
+import { BASE_URL } from "../../redux/config/api";
+import { connect } from "react-redux";
+
 const MusicPlayer = (props) => {
-  const { musicAll, playIndex, setPlayIndex } = props;
+  const { musicAll, index } = props;
   const playlist = musicAll.map((music) => ({
     name: music.title,
-    singer: music.artis,
-    cover: music.cover,
-    musicSrc: music.musicSrc,
+    singer: music.artis.name,
+    cover: `${BASE_URL}/images/${music.thumbnail}`,
+    musicSrc: music.attache,
   }));
 
   return (
@@ -25,21 +28,21 @@ const MusicPlayer = (props) => {
         autoPlay={false}
         showDownload={false}
         showThemeSwitch={false}
-        toggleMode={false}
-        responsive={false}
+        toggleMode={true}
+        responsive={true}
         glassBg={true}
-        playIndex={playIndex}
-        onAudioPlay={(audioInfo) => {
-          if (playIndex === audioInfo.playIndex) {
-            return;
-          }
-          console.log(audioInfo)
-          setPlayIndex(audioInfo.playIndex);
-        }}
+        playIndex={index}
       />
       ,
     </div>
   );
 };
 
-export default MusicPlayer;
+const mapStateToProps = (state) => {
+  const { index } = state.musicPlay;
+  return {
+    index,
+  };
+};
+
+export default connect(mapStateToProps)(MusicPlayer);

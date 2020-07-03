@@ -8,6 +8,7 @@ import AddMusic from "./pages/AddMusic";
 import AddSinger from "./pages/AddSinger";
 import Transaction from "./pages/Transaction";
 import NotFound from "./pages/NotPound";
+// import Play from "./pages/PlayMusic"
 // utils
 import RouteAdmin from "./component/utils/PrivateAdmin"
 import RouteUser from "./component/utils/PrivatUser"
@@ -26,6 +27,7 @@ function App() {
             <Route path="/music" exact component={AddMusic}><RouteAdmin component={AddMusic}/></Route>
             <Route path="/singer" exact component={AddSinger}><RouteAdmin component={AddSinger}/></Route>
             <Route path="/transaction" exact component={Transaction}><RouteUser component={Transaction}/></Route>
+             {/* <Route path="/play" component={Play}/> */}
             <Route path="*" exact component={NotFound}></Route>
           </Switch>
         </ScrollTop>

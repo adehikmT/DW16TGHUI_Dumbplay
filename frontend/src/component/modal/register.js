@@ -17,6 +17,8 @@ const Regis = ({ loading, authRegistCreator }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await authRegistCreator(user);
+    localStorage.setItem("sub", 0);
+    window.location.reload(true);
   };
 
   const Load = (load) => {

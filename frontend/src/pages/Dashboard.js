@@ -5,9 +5,16 @@ import Header from "../component/header";
 import Jumbotron from "../component/jumbotron";
 import SectionList from "../component/containerMusic";
 import LodBars from "../component/loader/Bars";
-import PlayMusic from "../component/playMusic";
+import PlayMusic from "../component/playMusic/index";
 
-const Dashboard = () => {
+import { connect } from "react-redux";
+
+const Dashboard = ({ error }) => {
+  let Show = 0;
+  if (!error) {
+    Show = localStorage.sub;
+  }
+
   document.title = "DumbSound";
   const [loadPage, setLoadPage] = useState(true);
   setTimeout(() => {
@@ -25,11 +32,18 @@ const Dashboard = () => {
             <Jumbotron />
           </Parallax>
           <SectionList />
-          {/* <PlayMusic/> */}
+          {Show > 0 ? <PlayMusic /> : null}
         </>
       )}
     </>
   );
 };
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  const { error } = state.authReducer;
+  return {
+    error,
+  };
+};
+
+export default connect(mapStateToProps)(Dashboard);
