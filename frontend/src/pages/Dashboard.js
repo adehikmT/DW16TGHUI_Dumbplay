@@ -5,19 +5,19 @@ import Header from "../component/header";
 import Jumbotron from "../component/jumbotron";
 import SectionList from "../component/containerMusic";
 import LodBars from "../component/loader/Bars";
-import PlayMusic from "../component/playMusic"
+import PlayMusic from "../component/playMusic";
 
 const Dashboard = () => {
   document.title = "DumbSound";
   const [loadPage, setLoadPage] = useState(true);
   setTimeout(() => {
     setLoadPage(false);
-  }, 3000);
+  }, 2000);
 
   return (
     <>
       {loadPage ? (
-        <LodBars to={3000} />
+        <LodBars />
       ) : (
         <>
           <Header />
@@ -25,7 +25,7 @@ const Dashboard = () => {
             <Jumbotron />
           </Parallax>
           <SectionList />
-          <PlayMusic/>
+          {/* <PlayMusic/> */}
         </>
       )}
     </>

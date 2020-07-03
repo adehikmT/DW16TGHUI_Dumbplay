@@ -8,8 +8,8 @@ const { authToken, authAdmin } = require("../middleware/authMiddleware");
 // validate
 const { validArtis } = require("../middleware/validMiddleware");
 
-Route.get("/artis", read).post(
-  "/artis",
+Route.get("/singer", read).post(
+  "/singer",
   authToken,
   authAdmin,
   validArtis,

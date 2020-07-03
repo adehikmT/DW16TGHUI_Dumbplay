@@ -2,7 +2,7 @@ import { AUTH_REGISTER, AUTH_LOGIN } from "../actions/actionTypes";
 import { ActionType } from "redux-promise-middleware";
 
 const initialState = {
-  data: [],
+  data: null,
   loading: false,
   error: null,
 };

@@ -65,7 +65,8 @@ module.exports = {
   },
   validMusic: async (req, res, next) => {
     try {
-      const thumbnail = req.file.filename;
+    const thumbnail = req.file.filename;
+    console.log(thumbnail)
       schema = Joi.object({
         title: Joi.string().required(),
         year: Joi.string().required(),
@@ -81,8 +82,7 @@ module.exports = {
         next();
       }
     } catch (err) {
-      await unupload(thumbnail);
-      return response(res, 400, 0, err);
+      return response(res, 400, 0, "image required");
     }
   },
   valTrans: async (req, res, next) => {

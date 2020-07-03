@@ -8,6 +8,9 @@ import AddMusic from "./pages/AddMusic";
 import AddSinger from "./pages/AddSinger";
 import Transaction from "./pages/Transaction";
 import NotFound from "./pages/NotPound";
+// utils
+import RouteAdmin from "./component/utils/PrivateAdmin"
+import RouteUser from "./component/utils/PrivatUser"
 //css
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -18,11 +21,11 @@ function App() {
       <Router>
         <ScrollTop>
           <Switch>
-            <Route path="/" exact component={Dashboard}></Route>
-            <Route path="/payment" exact component={Payment}></Route>
-            <Route path="/music" exact component={AddMusic}></Route>
-            <Route path="/singer" exact component={AddSinger}></Route>
-            <Route path="/transaction" exact component={Transaction}></Route>
+            <Route path="/" exact component={Dashboard}/>
+            <Route path="/payment" exact component={Payment}><RouteUser component={Payment}/></Route>
+            <Route path="/music" exact component={AddMusic}><RouteAdmin component={AddMusic}/></Route>
+            <Route path="/singer" exact component={AddSinger}><RouteAdmin component={AddSinger}/></Route>
+            <Route path="/transaction" exact component={Transaction}><RouteUser component={Transaction}/></Route>
             <Route path="*" exact component={NotFound}></Route>
           </Switch>
         </ScrollTop>

@@ -1,27 +1,14 @@
-import { getAllfilm, postFilm, deleteFilm, getDetailfilm } from "./reducerFilm";
-import { getAllcategory } from "./reducerCategory";
-import { postEpisode, getEpisodefilm } from "./reducerEpisode";
+import { combineReducers } from "redux";
+import { musicReducer } from "./reducerMusic";
+import { singerReducer } from "./reducerSinger";
 import { authReducer } from "./reducerAuth";
-import {
-  getAlltransaction,
-  patchTransaction,
-  deleteTransaction,
-  postTransaction,
-} from "./reducerTransaction";
+import { transactionReducer } from "./reducerTransaction";
 
-const reducer = {
-  getDetailfilm,
-  getAllfilm,
-  getAllcategory,
-  postFilm,
-  postEpisode,
-  getAlltransaction,
-  patchTransaction,
-  deleteTransaction,
-  postTransaction,
-  deleteFilm,
-  getEpisodefilm,
+const reducer = combineReducers({
+  singerReducer,
+  musicReducer,
   authReducer,
-};
+  transactionReducer,
+});
 
 export default reducer;

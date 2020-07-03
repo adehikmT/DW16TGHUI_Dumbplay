@@ -7,8 +7,16 @@ import Profile from "./profile";
 import Logo from "../../public/assets/logo.svg";
 import DumbSound from "../../public/assets/dumbsound.svg";
 
-const Index = () => {
-  let login = true;
+//Redux
+import { connect } from "react-redux";
+
+const Index = ({ data }) => {
+  let login = false;
+
+  //useractive
+  (data !== null && data > 200) || localStorage.token
+    ? (login = true)
+    : (login = false);
 
   const [modalShow, setModalShow] = useState({
     show: false,
@@ -98,4 +106,11 @@ const Index = () => {
   );
 };
 
-export default Index;
+const mapStateToProps = (state) => {
+  const { data } = state.authReducer;
+  return {
+    data,
+  };
+};
+
+export default connect(mapStateToProps)(Index);

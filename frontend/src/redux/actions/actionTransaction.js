@@ -19,10 +19,10 @@ export const getAlltransactionCreator = (token) => {
       } catch (error) {
         if (error.response) {
           const {
-            data: { data: dataError },
+            data: { error: dataError },
             status,
           } = error.response;
-          if (status > 399) throw dataError.error;
+          if (status > 399) throw dataError;
         }
       }
     },
@@ -43,10 +43,10 @@ export const patchTransactionCreator = (body, id, token) => {
       } catch (error) {
         if (error.response) {
           const {
-            data: { data: dataError },
+            data: { error: dataError },
             status,
           } = error.response;
-          if (status > 399) throw dataError.error;
+          if (status > 399) throw dataError;
         }
       }
     },
@@ -66,10 +66,10 @@ export const deleteTransactionCreator = (id, token) => {
       } catch (error) {
         if (error.response) {
           const {
-            data: { data: dataError },
+            data: { error: dataError },
             status,
           } = error.response;
-          if (status > 399) throw dataError.error;
+          if (status > 399) throw dataError;
         }
       }
     },
@@ -105,10 +105,10 @@ export const postTransactionCreator = (body, token) => {
       } catch (error) {
         if (error.response) {
           const {
-            data: { data: dataError },
+            data: { error: dataError },
             status,
           } = error.response;
-          if (status > 399) throw dataError.error;
+          if (status > 399) throw dataError;
         }
       }
     },

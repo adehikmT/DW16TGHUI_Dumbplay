@@ -1,7 +1,9 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
+
+//componen
 import Login from "./login";
-import Regist from "./register";
+import Regist from "./register";;
 
 const Opsi = (opsi) => {
   if (opsi === 0) {
@@ -13,6 +15,7 @@ const Opsi = (opsi) => {
 
 const MyModal = (props) => {
   return (
+    <>
     <Modal
       {...props}
       size="md"
@@ -21,6 +24,7 @@ const MyModal = (props) => {
     >
       {Opsi(props.option)}
     </Modal>
+    </>
   );
 };
 

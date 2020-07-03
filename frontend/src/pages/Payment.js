@@ -9,7 +9,7 @@ const Payment = () => {
   const [loadPage, setLoadPage] = useState(true);
   setTimeout(() => {
     setLoadPage(false);
-  }, 3000);
+  }, 2000);
 
   return (
     <>

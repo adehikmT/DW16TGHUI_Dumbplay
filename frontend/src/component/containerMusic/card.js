@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Card } from "react-bootstrap";
 import LoadAu from "../loader/Audio";
 
+import {BASE_URL} from "../../redux/config/api"
+
 import "./list.css";
 
-const Cards = () => {
-  return ( 
+const Cards = (props) => {
+  const { year, thumbnail, title} = props;
+  const singer = props.artis.name;
+  const [isLading, setLoading] = useState(true);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 3000);
+
+  const show = (load) => {
+    if (!load) {
+      return (
+        <>
+          <Card.Img
+            className="p-2 img-responsive"
+            variant="top"
+            src={BASE_URL+"/images/"+thumbnail}
+          />
+          <span className="musicTitle">
+            {title} <small className="year">{year}</small>
+          </span>
+          <small className="singer">{singer}</small>
+        </>
+      );
+    }
+  };
+
+  return (
     <>
       <Col lg={2} className="mt-5">
         <Card className="musicCard bg-dark">
-          <LoadAu to={15000} />
-          <Card.Img className="p-2" variant="top" src="holder.js/100px160" />
-          <span className="musicTitle">
-            Circel <small className="year">2000</small>
-          </span>
-          <small className="singer">Bobmarley</small>
+          <LoadAu to={15000} visible={isLading} />
+          {show(isLading)}
         </Card>
       </Col>
     </>

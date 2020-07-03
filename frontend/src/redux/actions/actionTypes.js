@@ -1,15 +1,10 @@
-// actions Filem
-export const GET_ALL_FILM = "GET_ALL_FILM";
-export const POST_FILM = "POST_FILM";
-export const DELETE_FILM = "DELETE_FILM";
-export const DETAIL_FILM = "DETAIL_FILM";
+// actions Music
+export const GET_ALL_MUSIC = "GET_ALL_MUSIC";
+export const POST_MUSIC = "POST_FILM";
 
-// action Category
-export const GET_ALL_CATEGORY = "GET_ALL_CATEGORY";
-
-// action episode
-export const POST_EPISODE = "POST_EPISODE";
-export const GET_EPISODE_FILM = "GET_EPISODE_FILM";
+// action Singer
+export const GET_ALL_SINGER = "GET_ALL_SINGER";
+export const POST_SINGER = "POST_SINGER";
 
 //action transaction
 export const GET_ALL_TRANSACTION = "GET_ALL_TRANSACTION";

@@ -15,12 +15,12 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage: storage,
-  fileFilter: async (req, file, cb) => {
-    await fileTypeCheck(file, cb);
+  fileFilter: (req, file, cb) => {
+    fileTypeCheck(file, cb);
   },
 }).single("image");
 
-const fileTypeCheck = async (file, cb) => {
+const fileTypeCheck = (file, cb) => {
   console.log(file);
   const types = /jpeg|jpg|png/;
   const extname = types.test(path.extname(file.originalname).toLowerCase());

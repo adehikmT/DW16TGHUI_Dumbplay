@@ -1,6 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Form from "./form"
+import Forms from "./form";
+
+//component
+import Alert from "../alert";
+//REDUX
 
 const Index = () => {
   return (
@@ -8,7 +12,8 @@ const Index = () => {
       <Container className="justify-content-center container" fluid>
         <Row className="justify-content-center mt-5">
           <Col md={4} xs={10} lg={10}>
-            <Form />
+            <Alert message="Music seved successfully"/>
+            <Forms />
           </Col>
         </Row>
       </Container>

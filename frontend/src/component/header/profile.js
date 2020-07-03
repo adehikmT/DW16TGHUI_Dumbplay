@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Image, Row, Col } from "react-bootstrap";
 import {
   MdPayment,
-  FaUserAlt,
   AiOutlineTransaction,
   MdLibraryMusic,
   FaUserTie,
@@ -13,33 +12,32 @@ import userImg from "../../public/assets/index.png";
 
 import "./header.css";
 
-const Down = (down) => {
+const Down = (down, Role) => {
+  const logout = () => {
+    localStorage.clear();
+    document.location.href = "/";
+  };
+
   if (down) {
     return (
       <div>
         <div className="profile-square">
           <div className="profile-arrow" />
-          <div className="profile-dropdown-group" style={{ marginTop: 10 }}>
-            <div className="profile-dropdown-icon">
-              <FaUserAlt className="icon" size={22} />
-            </div>
-            <a href="/profile" style={{ textDecoration: "none" }}>
-              <div className="profile-dropdown-link">
-                <span className="submenu">Profile</span>
-              </div>
-            </a>
-          </div>
           <div>
-            <div className="profile-dropdown-group">
-              <div className="profile-dropdown-icon">
-                <MdPayment className="icon" size={24} />
-              </div>
-              <a href="/payment" style={{ textDecoration: "none" }}>
-                <div className="profile-dropdown-link">
-                  <span className="submenu">Pay</span>
+            {Role < 1 ? (
+              <div className="profile-dropdown-group">
+                <div className="profile-dropdown-icon">
+                  <MdPayment className="icon" size={24} />
                 </div>
-              </a>
-            </div>
+                <a href="/payment" style={{ textDecoration: "none" }}>
+                  <div className="profile-dropdown-link">
+                    <span className="submenu">Pay</span>
+                  </div>
+                </a>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <div>
             <div className="profile-dropdown-group">
@@ -52,26 +50,32 @@ const Down = (down) => {
                 </div>
               </a>
             </div>
-            <div className="profile-dropdown-group">
-              <div className="profile-dropdown-icon">
-                <MdLibraryMusic className="icon" size={24} />
-              </div>
-              <a href="/music" style={{ textDecoration: "none" }}>
-                <div className="profile-dropdown-link">
-                  <span className="submenu">Add Music</span>
+            {Role > 0 ? (
+              <>
+                <div className="profile-dropdown-group">
+                  <div className="profile-dropdown-icon">
+                    <MdLibraryMusic className="icon" size={24} />
+                  </div>
+                  <a href="/music" style={{ textDecoration: "none" }}>
+                    <div className="profile-dropdown-link">
+                      <span className="submenu">Add Music</span>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div className="profile-dropdown-group">
-              <div className="profile-dropdown-icon">
-                <FaUserTie className="icon" size={22} />
-              </div>
-              <a href="/singer" style={{ textDecoration: "none" }}>
-                <div className="profile-dropdown-link">
-                  <span className="submenu">Add Artis</span>
+                <div className="profile-dropdown-group">
+                  <div className="profile-dropdown-icon">
+                    <FaUserTie className="icon" size={22} />
+                  </div>
+                  <a href="/singer" style={{ textDecoration: "none" }}>
+                    <div className="profile-dropdown-link">
+                      <span className="submenu">Add Artis</span>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
+              </>
+            ) : (
+              ""
+            )}
           </div>
           <hr
             style={{
@@ -90,6 +94,7 @@ const Down = (down) => {
             <div
               className="profile-dropdown-link mb-2"
               style={{ marginTop: -1 }}
+              onClick={logout}
             >
               <span className="submenu">Logout</span>
             </div>
@@ -119,12 +124,14 @@ const Profile = () => {
     }
   };
 
+  const Role = localStorage.getItem("role");
+
   return (
     <>
       <Row>
         <Col lg={1}>
           <Image src={userImg} className="profilrImg" onClick={handelClick} />
-          {Down(show)}
+          {Down(show, Role)}
         </Col>
       </Row>
     </>
