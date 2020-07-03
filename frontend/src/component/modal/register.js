@@ -17,8 +17,10 @@ const Regis = ({ loading, authRegistCreator }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await authRegistCreator(user);
-    localStorage.setItem("sub", 0);
-    window.location.reload(true);
+    // await CekUser(localStorage.token);
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 500);
   };
 
   const Load = (load) => {

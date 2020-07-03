@@ -6,9 +6,8 @@ import Alert from "../alert/authAlert";
 // REDUX
 import { connect } from "react-redux";
 import { authLoginCreator } from "../../redux/actions/actionAuth";
-import { CekUser } from "../../redux/actions/actionPlay";
 
-const Login = ({ loading, authLoginCreator, CekUser }) => {
+const Login = ({ loading, authLoginCreator }) => {
   const [user, setUser] = useState({});
 
   const handleChange = (event) => {
@@ -20,8 +19,9 @@ const Login = ({ loading, authLoginCreator, CekUser }) => {
     // console.log(user);
     await authLoginCreator(user);
     // console.log(localStorage.token)
-    await CekUser(localStorage.token);
-    window.location.reload(true)
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 500);
   };
 
   const Load = (load) => {
@@ -88,5 +88,4 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   authLoginCreator,
-  CekUser,
 })(Login);

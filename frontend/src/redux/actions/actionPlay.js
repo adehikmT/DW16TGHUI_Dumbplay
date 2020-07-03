@@ -14,10 +14,16 @@ export const CekUser = (token) => {
     payload: async () => {
       try {
         const { data: dataUser } = await API.post("/user", setAuthToken(token));
-        localStorage.setItem("sub", dataUser.data.subscribe);
-        return dataUser.data.subscribe;
+        return dataUser.data;
       } catch (error) {
-        return 0;
+        if (error.response) {
+          const {
+            data: { error: dataError },
+            status,
+          } = error.response;
+          console.log(error.response);
+          if (status > 399) throw dataError;
+        }
       }
     },
   };

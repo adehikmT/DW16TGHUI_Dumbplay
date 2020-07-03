@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Parallax } from "react-scroll-parallax";
 //child
 import Header from "../component/header";
@@ -8,12 +8,20 @@ import LodBars from "../component/loader/Bars";
 import PlayMusic from "../component/playMusic/index";
 
 import { connect } from "react-redux";
+import { CekUser } from "../redux/actions/actionPlay";
 
-const Dashboard = ({ error }) => {
+const Dashboard = ({ data, CekUser }) => {
   let Show = 0;
-  if (!error) {
-    Show = localStorage.sub;
+
+  if (data !== null) {
+    Show = 1;
   }
+
+  useEffect(() => {
+    if (localStorage.token !== undefined) {
+      CekUser(localStorage.token);
+    }
+  }, []);
 
   document.title = "DumbSound";
   const [loadPage, setLoadPage] = useState(true);
@@ -40,10 +48,10 @@ const Dashboard = ({ error }) => {
 };
 
 const mapStateToProps = (state) => {
-  const { error } = state.authReducer;
+  const { data } = state.userSub;
   return {
-    error,
+    data,
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, { CekUser })(Dashboard);
