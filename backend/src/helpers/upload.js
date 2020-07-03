@@ -22,7 +22,7 @@ const upload = multer({
 
 const fileTypeCheck = (file, cb) => {
   console.log(file);
-  const types = /jpeg|jpg|png/;
+  const types = /jpeg|jpg|png|svg/;
   const extname = types.test(path.extname(file.originalname).toLowerCase());
   const mimetype = types.test(file.mimetype);
   if (mimetype && extname) {

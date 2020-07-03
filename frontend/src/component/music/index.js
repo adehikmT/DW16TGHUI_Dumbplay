@@ -3,12 +3,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import Forms from "./form";
 
 //component
-import Alert from "../alert";
-//REDUX
+import Alert from "../alert/musicAlert";
+
 
 const Index = () => {
   return (
-    <>
+    <> 
       <Container className="justify-content-center container" fluid>
         <Row className="justify-content-center mt-5">
           <Col md={4} xs={10} lg={10}>

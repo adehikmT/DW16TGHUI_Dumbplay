@@ -6,7 +6,6 @@ import ListCard from "./card";
 import { connect } from "react-redux";
 import { getAllMusicCreator } from "../../redux/actions/actionMusic";
 
-// import data from "./Damy"
 // css
 import "./list.css";
 

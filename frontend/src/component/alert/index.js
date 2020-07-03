@@ -42,9 +42,9 @@ const Alerts = ({
     errorMusic = null;
     errorSinger = null;
   } else if (error || errorMusic || errorSinger !== null) {
-    error = null;
-    errorMusic = null;
-    errorSinger = null;
+    data = null;
+    dataMusic = null;
+    dataSinger = null;
   } else {
     error = null;
     errorMusic = null;

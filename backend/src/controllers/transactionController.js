@@ -26,6 +26,7 @@ module.exports = {
         attributes: {
           exclude: ["userId", "createdAt", "updatedAt"],
         },
+        order: [["id", "DESC"]],
       });
       return response(res, 200, 1, Transaction);
     } catch (err) {

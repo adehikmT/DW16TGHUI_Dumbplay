@@ -31,25 +31,46 @@ const POST_TRANSACTION_REJECTED = `${POST_TRANSACTION}_${ActionType.Rejected}`;
 export const transactionReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_TRANSACTION_PENDING:
-    case PATCH_TRANSACTION_PENDING:
     case DELETE_TRANSACTION_PENDING:
-    case POST_TRANSACTION_PENDING:
       return {
         ...state,
         loading: true,
       };
     case GET_ALL_TRANSACTION_FULFILLED:
-    case PATCH_TRANSACTION_FULFILLED:
     case DELETE_TRANSACTION_FULFILLED:
-    case POST_TRANSACTION_FULFILLED:
       return {
         ...state,
         loading: false,
         data: action.payload,
       };
     case GET_ALL_TRANSACTION_REJECTED:
-    case PATCH_TRANSACTION_REJECTED:
     case DELETE_TRANSACTION_REJECTED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const patchTransactionReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case PATCH_TRANSACTION_PENDING:
+    case POST_TRANSACTION_PENDING:
+      return {
+        ...state,
+        loading: true,
+      };
+    case PATCH_TRANSACTION_FULFILLED:
+    case POST_TRANSACTION_FULFILLED:
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
+    case PATCH_TRANSACTION_REJECTED:
     case POST_TRANSACTION_REJECTED:
       return {
         ...state,

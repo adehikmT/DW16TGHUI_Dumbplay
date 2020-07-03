@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { Form, Button, Row, Col, Spinner } from "react-bootstrap";
 import { MdAttachFile } from "react-icons/all";
 
@@ -18,16 +18,23 @@ const FormMusic = ({
 }) => {
   const [music, setMusic] = useState({});
 
+  const imgRef=useRef(null)
+
   const handleChange = (event) => {
     setMusic({ ...music, [event.target.name]: event.target.value });
-    // console.log(music);
+  };
+
+  const handleChangeFile = (event) => {
+    event.preventDefault();
+    let image=event.target.files[0];
+    setMusic({...music,image})
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const token = localStorage.token;
     // console.log(id)
-    await post(music, token);
+    await post({...music}, token);
     error === null ? setMusic({}) : setMusic(music);
   };
 
@@ -78,9 +85,11 @@ const FormMusic = ({
             <div className="custom-file">
               <input
                 type="file"
+                ref={imgRef}
                 className="custom-file-input"
                 id="customFileLangHTML"
                 name="image"
+                onChange={handleChangeFile}
               />
               <label
                 className="custom-file-label"

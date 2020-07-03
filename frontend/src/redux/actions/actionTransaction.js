@@ -79,11 +79,11 @@ export const deleteTransactionCreator = (id, token) => {
 export const postTransactionCreator = (body, token) => {
   const formData = new FormData();
 
-  formData.append("startDate", body.startDate);
-  formData.append("dueDate", body.dueDate);
+  formData.append("startDate", body.start);
+  formData.append("dueDate", body.due);
   formData.append("image", body.image);
   formData.append("status", "pending");
-  formData.append("userStatus", 0);
+  formData.append("statusPay", 0);
 
   const config = {
     headers: {

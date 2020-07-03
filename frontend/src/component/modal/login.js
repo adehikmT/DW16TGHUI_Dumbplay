@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, Form, Button, Spinner } from "react-bootstrap";
 
 //component
-import Alert from "../alert";
+import Alert from "../alert/authAlert";
 // REDUX
 import { connect } from "react-redux";
 import { authLoginCreator } from "../../redux/actions/actionAuth";

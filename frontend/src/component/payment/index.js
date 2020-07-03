@@ -1,6 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+
+//component
 import Form from "./form"
+import Alert from "../alert/transactionAlert";
 //css
 import "./payment.css";
 
@@ -25,6 +28,7 @@ const Index = () => {
         </Row>
         <Row className="justify-content-center">
           <Col md={4} xs={10}>
+          <Alert message="Transaction successfully"/>
           <Form/>
           </Col>
         </Row>

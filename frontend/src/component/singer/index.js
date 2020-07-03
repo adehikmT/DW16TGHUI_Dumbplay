@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Forms from "./form";
 
 //component
-import Alert from "../alert";
+import Alert from "../alert/singerAlert";
 
 const Index = () => {
   return (

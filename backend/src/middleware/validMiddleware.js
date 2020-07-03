@@ -65,13 +65,12 @@ module.exports = {
   },
   validMusic: async (req, res, next) => {
     try {
-    const thumbnail = req.file.filename;
-    console.log(thumbnail)
+      const thumbnail = req.file.filename;
       schema = Joi.object({
         title: Joi.string().required(),
         year: Joi.string().required(),
         attache: Joi.string(),
-        artisId: Joi.number().required(),
+        artisId: Joi.required(),
       });
       const { error } = schema.validate(req.body);
       if (error) {
@@ -94,6 +93,7 @@ module.exports = {
         startDate: Joi.string().required(),
         dueDate: Joi.string().required(),
         status: Joi.string().required(),
+        statusPay: Joi.string().required(),
       });
       const { error } = schema.validate(req.body);
       if (error) {
@@ -104,8 +104,7 @@ module.exports = {
         next();
       }
     } catch (err) {
-      await unupload(attache);
-      return response(res, 400, 0, err);
+      return response(res, 400, 0, "image required");
     }
   },
 };
