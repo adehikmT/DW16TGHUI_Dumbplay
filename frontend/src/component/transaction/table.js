@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Table, Dropdown,Spinner } from "react-bootstrap";
+import { Table, Dropdown, Spinner } from "react-bootstrap";
 import dayjs from "dayjs";
 
 import "./transaction.css";
 
+// cimponent
+import SortBy from "./SelectBy";
 // REDUX
 import { connect } from "react-redux";
 import {
@@ -47,8 +49,12 @@ const Tables = ({
       setCount(count + 1);
     } else {
       if (type === 2) {
-        await patch({ dueDate:"2020/01/01",status: "cencle", statusPay: 2 }, id, token);
-      setCount(count + 1);
+        await patch(
+          { dueDate: "2020/01/01", status: "cencle", statusPay: 2 },
+          id,
+          token
+        );
+        setCount(count + 1);
       }
     }
   };
@@ -74,10 +80,9 @@ const Tables = ({
       return (
         <>
           <Dropdown>
-            <Dropdown.Toggle
-              id="dropdown-basic"
-              className="down"
-            >{Load(loading)}</Dropdown.Toggle>
+            <Dropdown.Toggle id="dropdown-basic" className="down">
+              {Load(loading)}
+            </Dropdown.Toggle>
             <Dropdown.Menu className="bg-dark">
               <Dropdown.Item
                 onClick={() => handelClick(id, 1)}
@@ -102,6 +107,7 @@ const Tables = ({
 
   return (
     <>
+    <SortBy/>
       <Table striped hover variant="dark">
         <thead className="Thead">
           <tr>
@@ -156,7 +162,7 @@ const Tables = ({
       </Table>
     </>
   );
-}; 
+};
 
 const mapStateToProps = (state) => {
   const { loading, data } = state.transactionReducer;

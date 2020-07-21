@@ -49,7 +49,7 @@ module.exports = {
     try {
       schema = Joi.object({
         name: Joi.string().required(),
-        old: Joi.number().required(),
+        old: Joi.number().required(), 
         type: Joi.string().required(),
         startCareer: Joi.number().required(),
       });

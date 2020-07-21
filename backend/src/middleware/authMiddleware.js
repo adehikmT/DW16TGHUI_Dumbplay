@@ -13,7 +13,7 @@ module.exports = {
         next();
       } else {
         return response(res, 401, 0, "Access denied!");
-      }
+      } 
     } catch (err) {
       return response(res, 401, 0, err);
     }

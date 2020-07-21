@@ -121,4 +121,33 @@ module.exports = {
       return response(res, 500, 0, "Internal Server Error");
     }
   },
+  readSort: async (req, res) => {
+    try {
+      const { idSort } = req.params;
+      const status = null;
+      idSort === 1
+        ? (status = "approve")
+        : idSort == 2
+        ? (status = "pendding")
+        : (status = "cencel");
+      const User = await user.findOne({ where: { id: req.user.id } });
+      const Transaction = await transaction.findAll({
+        include: {
+          model: user,
+          attributes: {
+            exclude: ["listAs", "password", "createdAt", "updatedAt"],
+          },
+          where: User.listAs === 0 ? { id: User.id } : "",
+        },
+        attributes: {
+          exclude: ["userId", "createdAt", "updatedAt"],
+        },
+        where: { status },
+        order: [["id", "DESC"]],
+      });
+      return response(res, 200, 1, Transaction);
+    } catch (err) {
+      return response(res, 500, 0, err);
+    }
+  },
 };
